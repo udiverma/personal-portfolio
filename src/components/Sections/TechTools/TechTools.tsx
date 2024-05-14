@@ -53,7 +53,7 @@ const TechTools = ({iconsArray} : any) => {
                     }
                 }}
                     fontWeight='600'>
-                    Tools Of The Present And Future 
+                    My Tech Stack
                 </Typography>
                 <Typography
                     variant='h2'
@@ -66,7 +66,7 @@ const TechTools = ({iconsArray} : any) => {
                         sm: '1em'
                     }
                 }}>
-                    Frontend technologies I prefer using
+                    Technologies I&apos;ve Worked With
                 </Typography>
 
             </Grid>
