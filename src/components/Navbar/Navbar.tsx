@@ -14,7 +14,7 @@ const Navbar = ({ toggleDrawer, navbarSx }: INavbar) => {
     const router = useRouter();
 
     const handleLinkedInClick = () => {
-        window.open('https://www.linkedin.com/in/uverma/', '_blank');
+        window.open('https://www.linkedin.com/in/udiverma/', '_blank');
     };
 
     return (
