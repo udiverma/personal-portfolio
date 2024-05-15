@@ -1,7 +1,6 @@
 import { Container, Box, Grid } from '@mui/material';
 import Image from 'next/image';
 import Typography from '@mui/material/Typography';
-import ReadMore from '../ReadMore/ReadMore';
 import { ColorModeContext } from '../../../../pages/_app';
 import { useContext } from 'react';
 
@@ -108,8 +107,7 @@ const About = () => {
                                 },
                                 pb: '.5em',
                             }}>
-                            Despite being deeply immersed in technology, I value a balanced life. I enjoy reading, exploring new technologies, and engaging in activities that promote personal growth. I&apos;m actively involved in various organizations at George Mason University, including the Computer Science Club, Social Sandbox, the Society of Asian Scientists and Engineers, Tech for Good, and Tu Bhi Nachle, where I serve as the Financial Officer. My high school experience includes leadership roles in the Future Business Leaders of America and participation in the Model United Nations.
-
+                            Despite being deeply immersed in technology, I value a balanced life. I enjoy reading, exploring new technologies, and engaging in activities that promote personal growth. I&apos;m actively involved in various organizations at George Mason University, including the Computer Science Club, Social Sandbox, the Society of Asian Scientists and Engineers, Tech for Good, and Tu Bhi Nachle, where I serve as the Financial Officer.
                         </Typography>
 
                     </Grid>

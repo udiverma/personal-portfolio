@@ -35,10 +35,12 @@ function Footer() {
                     maxWidth='lg'
                     container>
                     <Grid item xs={12} sm={10} md={8}>
-                        <Typography variant='h1' fontSize='1.4em' fontWeight='400'>About.</Typography>
+                        <Typography variant='h1' fontSize='1.4em' fontWeight='400'>Achievements.</Typography>
                         <Box sx={styles}>
                             <Typography variant='h3' fontSize='1em'>
-                            Hi, my name is Udit Verma, and I am a Computer Science student at George Mason University specializing in Machine Learning and Artificial Intelligence. With a strong background in developing innovative projects and internships that enhance data processing, system security, and operational efficiency, I have won hackathons and created solutions like the Smart Garden System. I am passionate about leveraging technology to solve real-world problems and am actively seeking opportunities in the machine learning and AI sector to further my career.
+                            First Place Winner at HackOverflow&apos;s Hardware SpeedHack<br /><br />
+                            George Mason Honors College<br /><br />
+                            AP Scholar with Distinction	
                             </Typography>
                         </Box>
                     </Grid>

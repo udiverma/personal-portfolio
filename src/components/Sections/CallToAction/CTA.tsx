@@ -39,7 +39,7 @@ const CTA = () => {
             sx={{
             width: '100%',
             height: '300px',
-            my: '6em',
+            my: '0em',
             position: 'relative'
         }}>
 

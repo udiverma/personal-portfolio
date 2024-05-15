@@ -63,7 +63,7 @@ const Projects = ({projectsArray} : IProjects[] | any) => {
                             }
                         }}
                             fontWeight='600'>
-                            My Project Portfolio
+                            My Project Stack
                         </Typography>
                         <Typography
                             className='title4 t25o0'

@@ -3,9 +3,7 @@ import type {NextPage}
 from 'next'
 import Experience from '../src/components/Sections/TechTools/TechTools'
 import Hero from '../src/components/Sections/Hero/Hero'
-import Perks from '../src/components/Sections/Perks/Perks'
 import Projects from '../src/components/Sections/Projects/Projects';
-import CTA from '../src/components/Sections/CallToAction/CTA'
 import {useEffect, useRef} from 'react';
 import CursorAnimation from '../src/gsap/CursorAnimation';
 import About from '../src/components/Sections/About/About';
@@ -30,11 +28,9 @@ const Home : NextPage = ({projectsArray, iconsArray} : any) => {
             }}>
 
                 <Hero/>
-                <Perks/>
                 <Experience iconsArray={iconsArray}/>
                 <Projects projectsArray={projectsArray}/>
                 <About/>
-                <CTA/>
 
                 <Box
                     ref={ball}
