@@ -88,28 +88,17 @@ const About = () => {
                             <Typography
                                 variant='h2'
                                 sx={{
-                                    maxWidth: '570px',
+                                    maxWidth: '800px',
                                     fontSize: {
                                         xs: '.8em',
                                         sm: '1em',
                                     },
                                 }}>
-                                I am an 18-year-old Computer Science student specializing in Machine Learning and Artificial Intelligence at George Mason University. My journey in technology began with a fascination for machine learning and data processing, which has led me to develop innovative projects like the Smart Garden System and gain hands-on experience through internships where I enhanced data processing and system security.
+                                My journey in technology began in middle school when I discovered the world of web development through HTML and CSS. Creating something from scratch ignited a passion for coding that has only grown since then. By high school, I was diving into more complex areas like machine learning and data processing, which led me to develop innovative projects such as RentGMU and FixMyResume.
+                                <br /><br />I&apos;ve gained valuable hands-on experience through internships, where I enhanced data processing and system security. These experiences have deepened my understanding of the theoretical aspects of my field and equipped me with practical skills.
+                                <br /><br />Despite being deeply immersed in technology, I value a balanced life. I enjoy reading, exploring new technologies, and engaging in activities that promote personal growth. My active involvement in various organizations at George Mason University, including the Computer Science Club, Social Sandbox, the Society of Asian Scientists and Engineers, Tech for Good, Indian Student Association, and Tu Bhi Nachle, where I serve as the Financial Officer, has broadened my horizons and demonstrated my dedication to personal and professional development.
                             </Typography>
                         </Box>
-                        <Typography
-                            variant='h2'
-                            sx={{
-                                maxWidth: '570px',
-                                fontSize: {
-                                    xs: '.8em',
-                                    sm: '1em',
-                                },
-                                pb: '.5em',
-                            }}>
-                            Despite being deeply immersed in technology, I value a balanced life. I enjoy reading, exploring new technologies, and engaging in activities that promote personal growth. I&apos;m actively involved in various organizations at George Mason University, including the Computer Science Club, Social Sandbox, the Society of Asian Scientists and Engineers, Tech for Good, and Tu Bhi Nachle, where I serve as the Financial Officer.
-                        </Typography>
-
                     </Grid>
                 </Grid>
             </Container>
