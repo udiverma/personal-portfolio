@@ -59,8 +59,7 @@ const About = () => {
                                 alt='Personal Image'
                                 className='img1'
                                 layout='fill'
-                                src={`https://github.com/udiverma/assets/blob/main/Udit_Image_1.jpeg?raw=true`}
-                                objectFit="cover" // Add this line for better image fitting
+                                src='/About_Me_Image.jpeg'
                             />
                         </Box>
                     </Grid>

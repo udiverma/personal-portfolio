@@ -173,7 +173,7 @@ const Hero = () => {
                                     zIndex: '2'
                                 }}
                                 className='img1'
-                                src={`https://ucarecdn.com/150b60a1-4ef3-4ec8-8f1a-d90a7ea26c85/-/crop/1129x1256/0,194/-/preview/3000x3000/`}
+                                src='/Hero_Image.jpeg'
                                 alt="Personal Image"
                             />
                             <Box
