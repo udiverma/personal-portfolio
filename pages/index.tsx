@@ -1,122 +1,111 @@
-import {Box} from '@mui/material'
-import type {NextPage}
-from 'next'
-import Experience from '../src/components/Sections/TechTools/TechTools'
-import Hero from '../src/components/Sections/Hero/Hero'
+import { createClient } from 'contentful';
+import { NextPage } from 'next';
+import { Box } from '@mui/material';
+import Experience from '../src/components/Sections/TechTools/TechTools';
+import Hero from '../src/components/Sections/Hero/Hero';
 import Projects from '../src/components/Sections/Projects/Projects';
-import {useEffect, useRef} from 'react';
+import { useEffect, useRef } from 'react';
 import CursorAnimation from '../src/gsap/CursorAnimation';
 import About from '../src/components/Sections/About/About';
-import Layout from '../Layout/Layout'
+import Layout from '../Layout/Layout';
+import { IProject, IIcon } from '../src/Types/Types';
 
-const Home : NextPage = ({projectsArray, iconsArray} : any) => {
-    const ball = useRef()
+interface HomeProps {
+    projectsArray: IProject[];
+    iconsArray: IIcon[];
+}
+
+const Home: NextPage<HomeProps> = ({ projectsArray, iconsArray }) => {
+    const ball = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        if (ball && ball.current) {
-            CursorAnimation(ball.current)
+        if (ball.current) {
+            CursorAnimation(ball.current);
         }
+    }, []);
 
-    }, [])
     return (
-        <Layout desc={`Udit Verma is a Computer Science student at George Mason University specializing in Machine Learning and Artificial Intelligence, with hands-on experience in developing innovative projects and internships that enhance data processing, system security, and operational efficiency.`} title='Udit Verma | Personal Portfolio'>
-
+        <Layout
+            desc={`Udit Verma is a Computer Science student at George Mason University specializing in Machine Learning and Artificial Intelligence, with hands-on experience in developing innovative projects and internships that enhance data processing, system security, and operational efficiency.`}
+            title="Udit Verma | Personal Portfolio"
+        >
             <Box
                 sx={{
-                margin: '0 auto',
-                color: 'white'
-            }}>
-
-                <Hero/>
-                <Experience iconsArray={iconsArray}/>
-                <Projects projectsArray={projectsArray}/>
-                <About/>
-
+                    margin: '0 auto',
+                    color: 'white',
+                }}
+            >
+                <Hero />
+                <Experience iconsArray={iconsArray} />
+                <Projects projectsArray={projectsArray} />
+                <About />
                 <Box
                     ref={ball}
                     sx={{
-                    display: {
-                        xs: 'none',
-                        md: 'block'
-                    }
-                }}
-                    className="ball"></Box>
-
+                        display: {
+                            xs: 'none',
+                            md: 'block',
+                        },
+                    }}
+                    className="ball"
+                ></Box>
             </Box>
         </Layout>
+    );
+};
 
-    )
-}
-
-export default Home
+export default Home;
 
 export async function getStaticProps() {
-    function removeEmpty(obj : any) {
-        return Object.fromEntries(Object.entries(obj).filter(([_, v]) => v != null && v != false));
+    const space = process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID;
+    const accessToken = process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN;
+
+    if (!space || !accessToken) {
+        throw new Error('Contentful space ID and access token need to be defined in environment variables');
     }
+
+    const client = createClient({
+        space,
+        accessToken,
+    });
+
     try {
-        // first, grab our Contentful keys from the .env file
-        const space = process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID;
-        const accessToken = process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN;
+        const projectsResponse = await client.getEntries({
+            content_type: 'projectCollection',
+        });
 
-        // then, send a request to Contentful (using the same URL from GraphiQL)
-        const res =    await fetch(`https://graphql.contentful.com/content/v1/spaces/${space}`, {
-            method: 'POST', // GraphQL *always* uses POST requests!
-            headers: {
-                'content-type': 'application/json',
-                authorization: `Bearer ${accessToken}`, // add our access token header
+        const iconsResponse = await client.getEntries({
+            content_type: 'iconsCollection',
+        });
+
+        const projectsArray = projectsResponse.items.map((item: any) => ({
+            title: item.fields.title,
+            repoUrl: item.fields.repoUrl,
+            siteUrl: item.fields.siteUrl,
+            description: item.fields.description,
+            img: item.fields.img ? item.fields.img.fields.file.url : null,
+        }));
+
+        const iconsArray = iconsResponse.items.map((item: any) => ({
+            filter: item.fields.filter,
+            svg: item.fields.svg.fields.file.url,
+            title: item.fields.title,
+            isFrontend: item.fields.isFrontend,
+        }));
+
+        return {
+            props: {
+                projectsArray,
+                iconsArray,
             },
-            // send the query we wrote in GraphiQL as a string
-            body: JSON.stringify({
-                // all requests start with "query: ", so we'll stringify that for convenience
-                query: `
-                {
-                  projectCollection {
-                    items {
-                      title
-                      repoUrl
-                      siteUrl
-                      description
-                      img
-                    }
-                  }
-                  iconsCollection {
-                    items {
-                      filter
-                      svg
-                      title
-                      isBackend
-                    }
-                  }
-                }
-                
-                  `
-            })
-        },);
-
-        // grab the data from our response
-        const {data} = await res.json()
-        // const data :any = {}
-        if (!data || data?.length < 1) {
-            throw 'Error fetching data'
-        }
-        let iconsArray = []
-        for (let i = 0; i < data?.iconsCollection?.items.length; i++) {
-            let clearedIcon = removeEmpty(data?.iconsCollection.items[i])
-            iconsArray.push(clearedIcon)
-        }
-        return {
-            props: {
-                projectsArray: data?.projectCollection.items,
-                iconsArray
-            }
-        }
+        };
     } catch (err) {
-        console.log('err: ', err);
+        console.log('Error fetching data from Contentful:', err);
         return {
             props: {
-                data: null
-            }
-        }
+                projectsArray: [],
+                iconsArray: [],
+            },
+        };
     }
 }
