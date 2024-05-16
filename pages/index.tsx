@@ -3,9 +3,7 @@ import type {NextPage}
 from 'next'
 import Experience from '../src/components/Sections/TechTools/TechTools'
 import Hero from '../src/components/Sections/Hero/Hero'
-import Perks from '../src/components/Sections/Perks/Perks'
 import Projects from '../src/components/Sections/Projects/Projects';
-import CTA from '../src/components/Sections/CallToAction/CTA'
 import {useEffect, useRef} from 'react';
 import CursorAnimation from '../src/gsap/CursorAnimation';
 import About from '../src/components/Sections/About/About';
@@ -21,7 +19,7 @@ const Home : NextPage = ({projectsArray, iconsArray} : any) => {
 
     }, [])
     return (
-        <Layout desc={`Vito Medlej, A lebanese professional software engineer in Beirut, Can develop all kinds of websites and web/mobile applications according to your needs`} title='Vito Medlej Fullstack Developer Personal Portfolio Website'>
+        <Layout desc={`Udit Verma is a Computer Science student at George Mason University specializing in Machine Learning and Artificial Intelligence, with hands-on experience in developing innovative projects and internships that enhance data processing, system security, and operational efficiency.`} title='Udit Verma | Personal Portfolio'>
 
             <Box
                 sx={{
@@ -30,11 +28,9 @@ const Home : NextPage = ({projectsArray, iconsArray} : any) => {
             }}>
 
                 <Hero/>
-                <Perks/>
                 <Experience iconsArray={iconsArray}/>
                 <Projects projectsArray={projectsArray}/>
                 <About/>
-                <CTA/>
 
                 <Box
                     ref={ball}
