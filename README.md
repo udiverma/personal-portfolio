@@ -9,6 +9,7 @@ This project is licensed under the MIT License. See the `LICENSE` file for more 
 ## Credits
 
 Based on an open-source portfolio template by Vito Medlej.
+
 ---
 ### Personal Information
 
