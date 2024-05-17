@@ -4,8 +4,6 @@ import { Box } from '@mui/material';
 import Experience from '../src/components/Sections/TechTools/TechTools';
 import Hero from '../src/components/Sections/Hero/Hero';
 import Projects from '../src/components/Sections/Projects/Projects';
-import { useEffect, useRef } from 'react';
-import CursorAnimation from '../src/gsap/CursorAnimation';
 import About from '../src/components/Sections/About/About';
 import Layout from '../Layout/Layout';
 import { IProject, IIcon } from '../src/Types/Types';
@@ -16,14 +14,6 @@ interface HomeProps {
 }
 
 const Home: NextPage<HomeProps> = ({ projectsArray, iconsArray }) => {
-    const ball = useRef<HTMLDivElement>(null);
-
-    /* useEffect(() => {
-        if (ball.current) {
-            CursorAnimation(ball.current);
-        }
-    }, []); */
-
     return (
         <Layout
             desc={`Udit Verma is a Computer Science student at George Mason University specializing in Machine Learning and Artificial Intelligence, with hands-on experience in developing innovative projects and internships that enhance data processing, system security, and operational efficiency.`}
@@ -32,23 +22,13 @@ const Home: NextPage<HomeProps> = ({ projectsArray, iconsArray }) => {
             <Box
                 sx={{
                     margin: '0 auto',
-                    color: 'white',
+                    color: 'white', 
                 }}
             >
                 <Hero />
                 <Experience iconsArray={iconsArray} />
                 <Projects projectsArray={projectsArray} />
                 <About />
-                <Box
-                    ref={ball}
-                    sx={{
-                        display: {
-                            xs: 'none',
-                            md: 'block',
-                        },
-                    }}
-                    className="ball"
-                ></Box>
             </Box>
         </Layout>
     );
