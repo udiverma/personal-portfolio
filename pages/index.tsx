@@ -18,11 +18,11 @@ interface HomeProps {
 const Home: NextPage<HomeProps> = ({ projectsArray, iconsArray }) => {
     const ball = useRef<HTMLDivElement>(null);
 
-    useEffect(() => {
+    /* useEffect(() => {
         if (ball.current) {
             CursorAnimation(ball.current);
         }
-    }, []);
+    }, []); */
 
     return (
         <Layout
