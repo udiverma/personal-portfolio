@@ -71,17 +71,7 @@ const ProjectCard = ({
             </Box>
             <Box
                 ref={ref}
-                onMouseMove={onMouseMove}
                 sx={{
-                transition: ' all .1s ease',
-                '&:hover': {
-                    transform: {
-                        xs: ` translateY(-25%)`,
-                        md: `${rotation} ${isReversed
-                            ? 'translateX(-25%)'
-                            : 'translateX(25%)'}`
-                    }
-                },
                 borderRadius: '6px',
                 width: {
                     xs: '94%',
