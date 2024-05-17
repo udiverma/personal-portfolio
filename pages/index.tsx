@@ -36,7 +36,7 @@ const Home: NextPage<HomeProps> = ({ projectsArray, iconsArray }) => {
 
 export default Home;
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
     const space = process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID;
     const accessToken = process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN;
 
