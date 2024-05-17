@@ -32,20 +32,31 @@ export interface IContactBox {
     target ?: string;
     href: string;
 }
-
+export interface IIcon {
+    filter: boolean;
+    svg: string;
+    title: string;
+    isFrontend: boolean;
+}
 export interface ICustomDrawer extends INavbar {
     isOpen : boolean;
 }
 export interface IToolCard {
-    title : string;
-    svg : string;
-    className ?: string;
-    filter?: boolean
+    title: string;
+    svg: string;
+    filter: boolean;
+    className: string;
 }
-export interface ISocialMedia extends IToolCard {
-    color : string;
-    href : string;
+// src/Types/Types.ts
+export interface ISocialMedia {
+    svg: string;
+    title: string;
+    href: string;
+    color: string;
+    filter: boolean;
+    className: string;
 }
+
 export interface IDrawerItem {
     text : string;
     Icon : OverridableComponent < SvgIconTypeMap < {},
@@ -56,16 +67,14 @@ export interface IDrawerItem {
     url : string;
     toggleDrawer : (state?: boolean) => void
 }
-export interface IProjects {
-
-    img : string;
-    title : string;
-    siteUrl : string;
-    repoUrl : string;
-    description : string;
-
+export interface IProject {
+    title: string;
+    repoUrl: string;
+    siteUrl: string;
+    description: string;
+    img: string | null;
 }
-export interface IProjectCard extends IProjects {
+export interface IProjectCard extends IProject {
     isReversed?: boolean;
     className?: string;
 }

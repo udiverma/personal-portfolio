@@ -12,9 +12,9 @@ import ProjectCard from "./ProjectCard"
 import {useEffect} from 'react';
 import MainTitleAnimation from "../../../gsap/MainTitleAnimation";
 import gsap from 'gsap'
-import {IProjects} from "../../../Types/Types";
+import {IProject} from "../../../Types/Types";
 
-const Projects = ({projectsArray} : IProjects[] | any) => {
+const Projects = ({projectsArray} : IProject[] | any) => {
 
     useEffect(() => {
 

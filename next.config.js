@@ -3,7 +3,7 @@ const nextConfig = {
     reactStrictMode: true,
     swcMinify: true,
     images: {
-        domains: ['github.com']
+        domains: ['github.com', 'raw.githubusercontent.com']
     },
     webpack(config) {
         config
@@ -16,6 +16,8 @@ const nextConfig = {
 }
 
 module.exports = {
-    nextConfig,
-    swcMinify: false, // Disable SWC minification
+    reactStrictMode: true,
+    images: {
+        domains: ['github.com', 'raw.githubusercontent.com'],
+    },
 };
