@@ -51,10 +51,14 @@ const Hero = () => {
                                 transform: 'translateY(40px)',
                                 opacity: 0,
                                 pt: '0em',
-                                fontWeight: '600'
+                                fontWeight: '500',
+                                minHeight: {
+                                    xs:  '1.2em', // Adjust based on the expected line height for smaller screens
+                                    sm: '2.4em', // Adjust based on the expected line height for larger screens
+                                },
                             }}>
                             <Typewriter
-                                words={['Udit Verma', 'Software Engineer', 'ML / AI Dev','AWS Certified Cloud Practitioner', "Full Stack Dev"]}
+                                words={['Udit Verma', 'Software Engineer', 'ML / AI Developer','AWS Certified Cloud Practitioner', "Full Stack Developer"]}
                                 loop={true}
                                 cursor
                                 cursorStyle='_'
