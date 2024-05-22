@@ -53,7 +53,7 @@ const Hero = () => {
                                 pt: '0em',
                                 fontWeight: '500',
                                 minHeight: {
-                                    xs:  '1.2em', // Adjust based on the expected line height for smaller screens
+                                    xs:  '2.4em', // Adjust based on the expected line height for smaller screens
                                     sm: '2.4em', // Adjust based on the expected line height for larger screens
                                 },
                             }}>
