@@ -58,7 +58,12 @@ const Hero = () => {
                                 },
                             }}>
                             <Typewriter
-                                words={['Udit Verma', 'Software Engineer', 'ML / AI Developer','AWS Certified Cloud Practitioner', "Full Stack Developer"]}
+                                words={['Udit Verma', 
+                                        'Software Engineer', 
+                                        'ML / AI Developer',
+                                        'AWS Certified Cloud Practitioner', 
+                                        'Full Stack Developer'],
+                                        'AWS ML Speciality Certified'}
                                 loop={true}
                                 cursor
                                 cursorStyle='_'
